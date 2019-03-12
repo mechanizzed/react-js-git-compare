@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import GlobalStyle from './styles/global';
 
 const App = () => ({
   render() {
     return (
-      <div>
-        <p>Teste</p>
-      </div>
+      <Fragment>
+        <GlobalStyle />
+        <div>
+          <h1>Github compare</h1>
+        </div>
+      </Fragment>
     );
   },
 });
