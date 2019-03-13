@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
-import GlobalStyle from './styles/global';
+import GlobalStyle from './assets/styles/global';
 
 // Page Main
-import Main from './pages/main/Main';
+import Main from './pages/Main';
 
 const App = () => (
   <Fragment>
