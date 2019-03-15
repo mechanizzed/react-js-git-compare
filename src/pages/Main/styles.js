@@ -10,14 +10,14 @@ export const Container = styled.div`
 export const Form = styled.form`
   margin-top: 40px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
 
   input {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     border: 0;
-    font-size: 18px;
+    font-size: 15px;
     color: #666;
   }
 
