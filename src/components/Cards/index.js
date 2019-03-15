@@ -5,7 +5,7 @@ import { Container, RepositoryCard } from "./styles";
 const Cards = ({ repositories }) => (
   <Container>
     {repositories.map(repository => (
-      <RepositoryCard>
+      <RepositoryCard key={repository.id}>
         <header>
           <img src={repository.owner.avatar_url} alt={repository.owner.login} />
           <strong>{repository.name}</strong>
