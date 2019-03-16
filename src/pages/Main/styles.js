@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -32,5 +32,21 @@ export const Form = styled.form`
     &:hover {
       background-color: #4c1696;
     }
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+  margin-top: 40px;
+  background-color: rgba(95, 38, 172, 0.8);
+  padding: 10px;
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
   }
 `;
