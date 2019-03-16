@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 50px;
 `;
 
@@ -13,7 +14,7 @@ export const RepositoryCard = styled.div`
   width: 250px;
   background-color: #fff;
   border-radius: 3px;
-  margin: 0 10px;
+  margin: 10px;
 
   header {
     display: flex;
