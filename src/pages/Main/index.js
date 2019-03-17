@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // api axios
 import api from "../../services/api";
 
+//Moment
+import moment from "moment";
+
 import logo from "../../assets/images/logo.png";
 
 import Loader from "react-loader-spinner";
@@ -30,6 +33,9 @@ export default class Main extends Component {
       return this.setState({ msgEmpty: true });
     try {
       const response = await api.get(`/repos/${this.state.repositoryInput}`);
+
+      response.data.lastCommit = moment(response.data.pushed_at).fromNow();
+
       this.setState({
         repositoryInput: "",
         msgRepositoryError: false,
