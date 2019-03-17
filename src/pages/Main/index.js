@@ -61,7 +61,13 @@ export default class Main extends Component {
             value={this.state.repositoryInput}
             onChange={e => this.setState({ repositoryInput: e.target.value })}
           />
-          <button type="submit">Adicionar</button>
+          <button type="submit">
+            {this.state.loader ? (
+              <i className="fa fa-spinner fa-pulse" />
+            ) : (
+              "Adicionar"
+            )}
+          </button>
         </Form>
         {this.state.msgEmpty ? (
           <ErrorMessage>

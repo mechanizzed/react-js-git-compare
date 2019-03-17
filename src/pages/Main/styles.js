@@ -22,8 +22,9 @@ export const Form = styled.form`
   }
 
   button {
-    padding: 20px;
-    font-size: 20px;
+    min-width: 130px;
+    padding: 15px;
+    font-size: 18px;
     font-weight: bold;
     border: 0;
     color: #fff;
@@ -39,7 +40,7 @@ export const ErrorMessage = styled.div`
   width: 100%;
   max-width: 500px;
   align-items: center;
-  margin-top: 40px;
+  margin-bottom: 10px;
   background-color: rgba(95, 38, 172, 0.8);
   padding: 10px;
 
