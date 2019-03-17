@@ -16,9 +16,9 @@ export const Form = styled.form`
   input {
     flex: 1;
     padding: 15px;
-    border: 0;
     font-size: 15px;
     color: #666;
+    border: ${props => (props.withError ? "2px solid #F00" : 0)};
   }
 
   button {

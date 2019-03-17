@@ -8,8 +8,6 @@ import moment from "moment";
 
 import logo from "../../assets/images/logo.png";
 
-import Loader from "react-loader-spinner";
-
 import { Container, Form, ErrorMessage } from "./styles";
 
 // Components
@@ -27,7 +25,7 @@ export default class Main extends Component {
   handleAddRepository = async e => {
     e.preventDefault();
 
-    this.setState({ loader: true });
+    this.setState({ loader: true, msgRepositoryError: false });
 
     if (this.state.repositoryInput.length === 0)
       return this.setState({ msgEmpty: true });
@@ -39,11 +37,12 @@ export default class Main extends Component {
       this.setState({
         repositoryInput: "",
         msgRepositoryError: false,
-        repositories: [...this.state.repositories, response.data],
-        loader: false
+        repositories: [...this.state.repositories, response.data]
       });
     } catch (error) {
-      return this.setState({ msgRepositoryError: true, loader: false });
+      return this.setState({ msgRepositoryError: true });
+    } finally {
+      this.setState({ loader: false });
     }
   };
 
@@ -51,7 +50,10 @@ export default class Main extends Component {
     return (
       <Container>
         <img src={logo} alt="Github Compare" />
-        <Form onSubmit={this.handleAddRepository}>
+        <Form
+          withError={this.state.msgRepositoryError}
+          onSubmit={this.handleAddRepository}
+        >
           <input
             type="text"
             required
@@ -73,12 +75,6 @@ export default class Main extends Component {
           <ErrorMessage>
             <p>Repositório não encontrado</p>
           </ErrorMessage>
-        ) : (
-          ""
-        )}
-
-        {this.state.loader ? (
-          <Loader type="Oval" color="#fff" height="50" width="50" />
         ) : (
           ""
         )}
