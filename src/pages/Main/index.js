@@ -65,7 +65,7 @@ export default class Main extends Component {
             {this.state.loader ? (
               <i className="fa fa-spinner fa-pulse" />
             ) : (
-              "Adicionar"
+              <i className="fa fa-plus" />
             )}
           </button>
         </Form>
@@ -74,7 +74,7 @@ export default class Main extends Component {
             <p>Preencha o campo acima</p>
           </ErrorMessage>
         ) : (
-          ""
+          false
         )}
 
         {this.state.msgRepositoryError ? (
@@ -82,7 +82,7 @@ export default class Main extends Component {
             <p>Repositório não encontrado</p>
           </ErrorMessage>
         ) : (
-          ""
+          false
         )}
 
         <Cards repositories={this.state.repositories} />
