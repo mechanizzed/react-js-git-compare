@@ -5,6 +5,8 @@ import api from "../../services/api";
 
 import logo from "../../assets/images/logo.png";
 
+import Loader from "react-loader-spinner";
+
 import { Container, Form, ErrorMessage } from "./styles";
 
 // Components
@@ -15,11 +17,15 @@ export default class Main extends Component {
     repositoryInput: "",
     repositories: [],
     msgEmpty: false,
-    msgRepositoryError: false
+    msgRepositoryError: false,
+    loader: false
   };
 
   handleAddRepository = async e => {
     e.preventDefault();
+
+    this.setState({ loader: true });
+
     if (this.state.repositoryInput.length === 0)
       return this.setState({ msgEmpty: true });
     try {
@@ -27,10 +33,11 @@ export default class Main extends Component {
       this.setState({
         repositoryInput: "",
         msgRepositoryError: false,
-        repositories: [...this.state.repositories, response.data]
+        repositories: [...this.state.repositories, response.data],
+        loader: false
       });
     } catch (error) {
-      return this.setState({ msgRepositoryError: true });
+      return this.setState({ msgRepositoryError: true, loader: false });
     }
   };
 
@@ -60,6 +67,12 @@ export default class Main extends Component {
           <ErrorMessage>
             <p>Repositório não encontrado</p>
           </ErrorMessage>
+        ) : (
+          ""
+        )}
+
+        {this.state.loader ? (
+          <Loader type="Oval" color="#fff" height="50" width="50" />
         ) : (
           ""
         )}
